@@ -19,8 +19,8 @@ class User(Document):
     last_name: Optional[str] = None
     address: Optional[str] = None
     disabled: Optional[str] = None
-    roles: List[Role]
-    jobs: List[ObjectId] = []
+    roles: Optional[List[Role]] = Field(default_factory=lambda: [Role.candidate])
+    jobs: Optional[List[ObjectId]] = Field(default_factory=list)
     
     def __repr__(self) -> str:
         return f"User {self.email}"
@@ -41,5 +41,3 @@ class User(Document):
     async def by_email(self, email: str) -> "User":
         return await self.find_one(self.email == email)
         
-    
-    
