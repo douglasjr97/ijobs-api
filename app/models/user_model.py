@@ -19,8 +19,8 @@ class User(Document):
     last_name: Optional[str] = None
     address: Optional[str] = None
     disabled: Optional[str] = None
-    roles: Optional[List[Role]] = Field(default_factory=lambda: [Role.candidate])
-    jobs: Optional[List[ObjectId]] = Field(default_factory=list)
+    # roles: Optional[List[Role]] = Field(default_factory=lambda: [Role.candidate])
+    # jobs: Optional[List[ObjectId]] = Field(default_factory=list)
     
     def __repr__(self) -> str:
         return f"User {self.email}"
