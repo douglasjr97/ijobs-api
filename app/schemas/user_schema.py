@@ -34,10 +34,15 @@ class UserAuth(BaseModel):
         description='Address'
     )
     
-class UserDetail(BaseModel):
+class ResponseUserDetail(BaseModel):
     user_id: UUID
     username: str
     email: str
     first_name: str
     last_name: str
     address: str
+    
+class ResponseUserAuth(BaseModel):
+    user_id: UUID
+    username: str
+    email: str
